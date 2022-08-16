@@ -7,3 +7,4 @@ const kheight15 = SizedBox(height: 15);
 const kheight30 = SizedBox(height: 30);
 
 const kwidth10 = SizedBox(width: 10,);
+const kwidth20 = SizedBox(width: 20,);

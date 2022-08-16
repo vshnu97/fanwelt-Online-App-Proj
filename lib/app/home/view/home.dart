@@ -9,7 +9,7 @@ class ScreenHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final prov =Provider.of<NavigationControllerProv>(context);
+    final prov = Provider.of<NavigationControllerProv>(context);
     return Container(
       color: kWhitecolor,
       child: SafeArea(
@@ -78,90 +78,30 @@ class ScreenHome extends StatelessWidget {
                 type: BottomNavigationBarType.fixed,
                 showUnselectedLabels: true,
                 showSelectedLabels: true,
-                items: <BottomNavigationBarItem>[
+                items: const <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
-                      icon: Container(
-                          height: 60,
-                          width: 60,
-                          decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [
-                                    Color(0xff16273e),
-                                    Color(0xff234090),
-                                    Color(0xff314f9f),
-                                    Color(0xff223973),
-                                    Color(0xff16273e),
-                                  ]),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: const Icon(
-                            Icons.home,
-                            color: kWhitecolor,
-                          )),
+                      icon: NavbarContainerWidget(
+                        icon: Icons.home_outlined,
+                        index: 0,
+                      ),
                       label: "Home"),
                   BottomNavigationBarItem(
-                      icon: Container(
-                          height: 60,
-                          width: 60,
-                          decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [
-                                    Color(0xff16273e),
-                                    Color(0xff234090),
-                                    Color(0xff314f9f),
-                                    Color(0xff223973),
-                                    Color(0xff16273e),
-                                  ]),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: const Icon(
-                            Icons.emoji_events,
-                            color: kWhitecolor,
-                          )),
+                      icon: NavbarContainerWidget(
+                        icon: Icons.emoji_events_outlined,
+                        index: 1,
+                      ),
                       label: "My Rooms"),
                   BottomNavigationBarItem(
-                      icon: Container(
-                          height: 60,
-                          width: 60,
-                          decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [
-                                    Color(0xff16273e),
-                                    Color(0xff234090),
-                                    Color(0xff314f9f),
-                                    Color(0xff223973),
-                                    Color(0xff16273e),
-                                  ]),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: const Icon(
-                            Icons.wallet,
-                            color: kWhitecolor,
-                          )),
+                      icon: NavbarContainerWidget(
+                        icon: Icons.wallet_outlined,
+                        index: 2,
+                      ),
                       label: "Wallet"),
                   BottomNavigationBarItem(
-                      icon: Container(
-                          height: 60,
-                          width: 60,
-                          decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [
-                                    Color(0xff16273e),
-                                    Color(0xff234090),
-                                    Color(0xff314f9f),
-                                    Color(0xff223973),
-                                    Color(0xff16273e),
-                                  ]),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: const Icon(
-                            Icons.more_horiz,
-                            color: kWhitecolor,
-                          )),
+                      icon: NavbarContainerWidget(
+                        icon: Icons.more_horiz_outlined,
+                        index: 3,
+                      ),
                       label: "More"),
                 ],
                 currentIndex: value.selectedIndex,
@@ -174,5 +114,31 @@ class ScreenHome extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class NavbarContainerWidget extends StatelessWidget {
+  final IconData icon;
+  final int index;
+  const NavbarContainerWidget(
+      {Key? key, required this.icon, required this.index})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final prov = Provider.of<NavigationControllerProv>(context);
+    return Container(
+        height: 60,
+        width: 60,
+        decoration: prov.selectedIndex == index
+            ? BoxDecoration(
+                gradient:deffAppgradient ,
+                borderRadius: BorderRadius.circular(30))
+            : BoxDecoration(
+                color: offWhiteColor,
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(color: appBaseColor)),
+        child: Icon(icon,
+            color: prov.selectedIndex == index ? kWhitecolor : kBlackColor));
   }
 }
