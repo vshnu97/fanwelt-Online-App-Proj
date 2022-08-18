@@ -5,27 +5,18 @@ import 'package:fanwelt/app/wallet/view/screen_walet.dart';
 import 'package:flutter/cupertino.dart';
 
 class NavigationControllerProv extends ChangeNotifier {
-
-//   NavigationControllerProv(){
-//     changePageNav()
-// ;  }
   int selectedIndex = 0;
 
-  // var navItems = <Widget>[];
- final  navItems = [
-      const ScreenDashboard(),
-      const ScreenMyRooms(),
-      const ScreenWallet(),
-      const ScreenMore(),
-    ];
-
-  // changePageNav() {
-   
-  //   notifyListeners();
-  // }
+  final navItems = [
+     ScreenDashboard(),
+    const ScreenMyRooms(),
+    const ScreenWallet(),
+    const ScreenMore(),
+  ];
 
   onSelected(index) {
     selectedIndex = index;
+
     notifyListeners();
   }
 }
