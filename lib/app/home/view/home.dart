@@ -1,11 +1,13 @@
+import 'package:fanwelt/app/home/view/widgets/appbar.dart';
 import 'package:fanwelt/app/home/viewmodel/bottom_nav_prov.dart';
 import 'package:fanwelt/app/utitis/colors/colors.dart';
-import 'package:fanwelt/app/utitis/sizedbox/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ScreenHome extends StatelessWidget {
-  const ScreenHome({Key? key}) : super(key: key);
+ 
+  
+   const ScreenHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,44 +18,7 @@ class ScreenHome extends StatelessWidget {
         child: Scaffold(
           appBar: PreferredSize(
             preferredSize: Size(MediaQuery.of(context).size.width, 80.0),
-            child: Container(
-              height: 60,
-              decoration: const BoxDecoration(gradient: appbarGradeint),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const CircleAvatar(
-                      backgroundImage: AssetImage('assets/avatar.jpg'),
-                    ),
-                    const Text(
-                      'Fanwelt',
-                      style: TextStyle(
-                          fontSize: 21,
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.w600,
-                          color: appBaseColor),
-                    ),
-                    Row(
-                      children: const [
-                        Icon(
-                          Icons.person,
-                          color: appBaseColor,
-                          size: 28,
-                        ),
-                        kwidth10,
-                        Icon(
-                          Icons.message,
-                          color: appBaseColor,
-                          size: 28,
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
+            child: AppBarWidget(title: 'Fanwelt', profileAvatar: true,),
           ),
           body: prov.navItems[prov.selectedIndex],
           bottomNavigationBar: Consumer<NavigationControllerProv>(
@@ -116,6 +81,8 @@ class ScreenHome extends StatelessWidget {
     );
   }
 }
+
+
 
 class NavbarContainerWidget extends StatelessWidget {
   final IconData icon;
