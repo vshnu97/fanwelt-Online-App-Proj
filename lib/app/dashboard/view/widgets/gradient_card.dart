@@ -11,9 +11,11 @@ class MainCardWidgetGradient extends StatelessWidget {
   String teamName2;
   String teamLogo2;
   String teamNickName2;
+  bool flagLogo;
 
   MainCardWidgetGradient({
     Key? key,
+    required this.flagLogo,
     required this.playTime,
     required this.teamLogo1,
     required this.teamName1,
@@ -60,7 +62,7 @@ class MainCardWidgetGradient extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                     teamName1,
+                      teamName1,
                       style: wTextSubStyle,
                     ),
                     Row(
@@ -70,7 +72,7 @@ class MainCardWidgetGradient extends StatelessWidget {
                           height: 45,
                         ),
                         kwidth10,
-                         Text(
+                        Text(
                           teamNickName1,
                           style: wTextStyle,
                         )
@@ -78,31 +80,33 @@ class MainCardWidgetGradient extends StatelessWidget {
                     )
                   ],
                 ),
-                 Text(
+                Text(
                   playTime,
                   style: const TextStyle(color: kWhitecolor),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      teamName2,
-                      style: wTextSubStyle,
-                    ),
-                    Row(
-                      children: [
-                         Text(
-                          teamNickName2,
-                          style: wTextStyle,
-                        ),
-                        kwidth10,
-                        Image.asset(
-                          teamLogo2,
-                          height: 45,
-                        ),
-                      ],
-                    )
-                  ],
+                FittedBox(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        teamName2,
+                        style: wTextSubStyle,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            teamNickName2,
+                            style: wTextStyle,
+                          ),
+                          kwidth10,
+                          Image.asset(
+                            teamLogo2,
+                            height: 45,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -131,9 +135,12 @@ class MainCardWidgetGradient extends StatelessWidget {
                     )
                   ],
                 ),
-                Image.asset(
-                  'assets/Flag.webp',
-                  height: 18,
+                Visibility(
+                  visible: flagLogo,
+                  child: Image.asset(
+                    'assets/Flag.webp',
+                    height: 18,
+                  ),
                 ),
               ],
             )

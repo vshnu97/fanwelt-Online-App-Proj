@@ -1,5 +1,6 @@
 import 'package:fanwelt/app/dashboard/viewmodel/dashboard_prov.dart';
 import 'package:fanwelt/app/home/viewmodel/bottom_nav_prov.dart';
+import 'package:fanwelt/app/upcoming_matches/viewmodel/upcoming_prov.dart';
 import 'package:fanwelt/main.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +13,8 @@ class Providers {
             create: (context) => NavigationControllerProv()),
              ChangeNotifierProvider<DashboardProv>(
             create: (context) => DashboardProv()),
+             ChangeNotifierProvider<UpcomingMatchesProv>(
+            create: (context) => UpcomingMatchesProv()),
       ],
       child: const MyApp(),
     );
