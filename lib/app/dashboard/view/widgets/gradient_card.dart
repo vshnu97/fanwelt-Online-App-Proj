@@ -4,8 +4,23 @@ import 'package:fanwelt/app/utitis/text_style/text_style.dart';
 import 'package:flutter/material.dart';
 
 class MainCardWidgetGradient extends StatelessWidget {
-  const MainCardWidgetGradient({
+  String teamName1;
+  String teamLogo1;
+  String teamNickName1;
+  String playTime;
+  String teamName2;
+  String teamLogo2;
+  String teamNickName2;
+
+  MainCardWidgetGradient({
     Key? key,
+    required this.playTime,
+    required this.teamLogo1,
+    required this.teamName1,
+    required this.teamNickName1,
+    required this.teamLogo2,
+    required this.teamName2,
+    required this.teamNickName2,
   }) : super(key: key);
 
   @override
@@ -17,8 +32,7 @@ class MainCardWidgetGradient extends StatelessWidget {
         gradient: deffAppgradient,
       ),
       child: Padding(
-        padding:
-            const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -46,44 +60,44 @@ class MainCardWidgetGradient extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Mumbai  Indians',
+                     teamName1,
                       style: wTextSubStyle,
                     ),
                     Row(
                       children: [
                         Image.asset(
-                          'assets/cricketLogo1.png',
+                          teamLogo1,
                           height: 45,
                         ),
                         kwidth10,
-                        const Text(
-                          'MI',
+                         Text(
+                          teamNickName1,
                           style: wTextStyle,
                         )
                       ],
                     )
                   ],
                 ),
-                const Text(
-                  '3h',
-                  style: TextStyle(color: kWhitecolor),
+                 Text(
+                  playTime,
+                  style: const TextStyle(color: kWhitecolor),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      'Mumbai  Indians',
+                      teamName2,
                       style: wTextSubStyle,
                     ),
                     Row(
                       children: [
-                        const Text(
-                          'CSK',
+                         Text(
+                          teamNickName2,
                           style: wTextStyle,
                         ),
                         kwidth10,
                         Image.asset(
-                          'assets/cricketLogo2.png',
+                          teamLogo2,
                           height: 45,
                         ),
                       ],
@@ -111,8 +125,8 @@ class MainCardWidgetGradient extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               letterSpacing: .5),
                         )),
-                     Text(
-                      '  ₹8L',
+                    Text(
+                      '  ₹8Cr',
                       style: wTextSubStyle,
                     )
                   ],
