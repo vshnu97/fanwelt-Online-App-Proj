@@ -5,6 +5,7 @@ import 'package:fanwelt/app/dashboard/view/widgets/normal_card.dart';
 import 'package:fanwelt/app/dashboard/view/widgets/tournament_card.dart';
 import 'package:fanwelt/app/dashboard/viewmodel/dashboard_prov.dart';
 import 'package:fanwelt/app/routes/routes.dart';
+import 'package:fanwelt/app/tournaments/view/screen_tournaments.dart';
 import 'package:fanwelt/app/upcoming_matches/view/screen_upcoming.dart';
 import 'package:fanwelt/app/utitis/colors/colors.dart';
 import 'package:fanwelt/app/utitis/sizedbox/sizedbox.dart';
@@ -44,7 +45,7 @@ class ScreenDashboard extends StatelessWidget {
                           const CardWidgetWhite(),
                           kheight15,
                            const SectionRow(
-                            title: ('Tournaments'), screen:  ScreenUpcomingMateches(),
+                            title: ('Tournaments'), screen:  ScreenTournments(),
                           ),
                           kheight15,
                           const TournamentCardWidget()

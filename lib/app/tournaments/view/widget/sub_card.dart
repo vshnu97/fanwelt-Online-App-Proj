@@ -3,8 +3,9 @@ import 'package:fanwelt/app/utitis/sizedbox/sizedbox.dart';
 import 'package:fanwelt/app/utitis/text_style/text_style.dart';
 import 'package:flutter/material.dart';
 
-Widget matchCardWidget(bool isSelected) {
+Widget tournamentSubCard(bool isSelected, int index2) {
   return Container(
+    margin: const EdgeInsets.only(top: 10, left: 15, right: 15),
     height: 140,
     decoration: isSelected
         ? BoxDecoration(
@@ -27,7 +28,7 @@ Widget matchCardWidget(bool isSelected) {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'OPPO IPL',
+                'Match#${index2+1}',
                 style: isSelected ? wTextStyle : wTextStyleBlack,
               ),
               Icon(

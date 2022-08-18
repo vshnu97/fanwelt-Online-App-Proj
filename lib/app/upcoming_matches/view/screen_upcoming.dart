@@ -1,7 +1,6 @@
-import 'package:fanwelt/app/dashboard/view/widgets/game_tababr.dart';
-import 'package:fanwelt/app/dashboard/viewmodel/dashboard_prov.dart';
 import 'package:fanwelt/app/upcoming_matches/view/widgets/appbar_pages.dart';
 import 'package:fanwelt/app/upcoming_matches/view/widgets/match_card.dart';
+import 'package:fanwelt/app/upcoming_matches/view/widgets/tab_bar.dart';
 import 'package:fanwelt/app/upcoming_matches/viewmodel/upcoming_prov.dart';
 import 'package:fanwelt/app/utitis/colors/colors.dart';
 import 'package:fanwelt/app/utitis/sizedbox/sizedbox.dart';
@@ -23,16 +22,35 @@ class _ScreenUpcomingMatechesState extends State<ScreenUpcomingMateches> {
       child: SafeArea(
         child: Scaffold(
           appBar: PreferredSize(
-            preferredSize: Size(MediaQuery.of(context).size.width, 80.0),
-            child:PageAppbar(title: 'Upcoming Matches')
-          ),
+              preferredSize: Size(MediaQuery.of(context).size.width, 80.0),
+              child: const PageAppbar(title: 'Upcoming Matches')),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
-                const GameTabBar(),
+                Container(
+                  margin: const EdgeInsets.only(top: 20, left: 15, right: 15),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const [
+                      DashGameTabUpcoming(
+                        name: 'Cricket',
+                        image: 'assets/cricketBall.png',
+                        index: 0,
+                      ),
+                      kwidth20,
+                      DashGameTabUpcoming(
+                        name: 'Football',
+                        image: 'assets/football.png',
+                        index: 1,
+                      )
+                    ],
+                  ),
+                ),
                 kheight30,
-                Consumer<DashboardProv>(
+                Consumer<UpcomingMatchesProv>(
                   builder: (context, value, child) => Expanded(
                     child: value.selectedIndex == 0
                         ? Consumer<UpcomingMatchesProv>(
