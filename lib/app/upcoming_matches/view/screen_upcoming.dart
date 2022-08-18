@@ -1,6 +1,6 @@
 import 'package:fanwelt/app/dashboard/view/widgets/game_tababr.dart';
 import 'package:fanwelt/app/dashboard/viewmodel/dashboard_prov.dart';
-import 'package:fanwelt/app/home/view/widgets/appbar.dart';
+import 'package:fanwelt/app/upcoming_matches/view/widgets/appbar_pages.dart';
 import 'package:fanwelt/app/upcoming_matches/view/widgets/match_card.dart';
 import 'package:fanwelt/app/upcoming_matches/viewmodel/upcoming_prov.dart';
 import 'package:fanwelt/app/utitis/colors/colors.dart';
@@ -24,10 +24,7 @@ class _ScreenUpcomingMatechesState extends State<ScreenUpcomingMateches> {
         child: Scaffold(
           appBar: PreferredSize(
             preferredSize: Size(MediaQuery.of(context).size.width, 80.0),
-            child: AppBarWidget(
-              title: 'Upcoming Matches',
-              profileAvatar: false,
-            ),
+            child:PageAppbar(title: 'Upcoming Matches')
           ),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),

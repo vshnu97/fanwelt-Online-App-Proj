@@ -1,13 +1,13 @@
+import 'package:fanwelt/app/routes/routes.dart';
 import 'package:fanwelt/app/utitis/colors/colors.dart';
 import 'package:fanwelt/app/utitis/sizedbox/sizedbox.dart';
 import 'package:flutter/material.dart';
 
-class AppBarWidget extends StatelessWidget {
-  final String title;
- final bool profileAvatar;
+class PageAppbar extends StatelessWidget {
+  String title;
+  // Widget screenName;
 
-  const AppBarWidget({Key? key, required this.title, required this.profileAvatar})
-      : super(key: key);
+  PageAppbar({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +19,11 @@ class AppBarWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Visibility(
-                visible: profileAvatar,
-                child: const CircleAvatar(
-                  backgroundImage: AssetImage('assets/avatar.jpg'),
-                )),
+            IconButton(
+                onPressed: () {
+                  RoutesScreen().popScreen(context);
+                },
+                icon: const Icon(Icons.arrow_back_ios)),
             Text(
               title,
               style: const TextStyle(

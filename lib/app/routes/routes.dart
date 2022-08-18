@@ -5,7 +5,7 @@ class RoutesScreen {
     Navigator.of(context).push(MaterialPageRoute(builder: (cxt) => screen));
   }
 
-  popScreen(BuildContext context, Widget screen){
+  popScreen(BuildContext context){
     Navigator.of(context).pop();
 
   }
