@@ -4,10 +4,10 @@ import 'package:fanwelt/app/utitis/sizedbox/sizedbox.dart';
 import 'package:flutter/material.dart';
 
 class PageAppbar extends StatelessWidget {
-  String title;
-  // Widget screenName;
+final  String title;
 
-  PageAppbar({Key? key, required this.title}) : super(key: key);
+
+  const PageAppbar({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

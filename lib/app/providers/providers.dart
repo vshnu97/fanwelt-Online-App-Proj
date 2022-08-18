@@ -1,5 +1,7 @@
 import 'package:fanwelt/app/dashboard/viewmodel/dashboard_prov.dart';
 import 'package:fanwelt/app/home/viewmodel/bottom_nav_prov.dart';
+import 'package:fanwelt/app/tournaments/viewmodel/sub_card_prov.dart';
+import 'package:fanwelt/app/tournaments/viewmodel/tournaments_pro.dart';
 import 'package:fanwelt/app/upcoming_matches/viewmodel/upcoming_prov.dart';
 import 'package:fanwelt/main.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,10 @@ class Providers {
             create: (context) => DashboardProv()),
              ChangeNotifierProvider<UpcomingMatchesProv>(
             create: (context) => UpcomingMatchesProv()),
+             ChangeNotifierProvider<TournamentProv>(
+            create: (context) => TournamentProv()),
+             ChangeNotifierProvider<SubCardProv>(
+            create: (context) => SubCardProv()),
       ],
       child: const MyApp(),
     );
