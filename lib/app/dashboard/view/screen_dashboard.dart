@@ -1,9 +1,11 @@
+import 'dart:developer';
 
 import 'package:fanwelt/app/dashboard/view/widgets/carousel_widget.dart';
 import 'package:fanwelt/app/dashboard/view/widgets/game_tababr.dart';
 import 'package:fanwelt/app/dashboard/view/widgets/normal_card.dart';
 import 'package:fanwelt/app/dashboard/view/widgets/tournament_card.dart';
 import 'package:fanwelt/app/dashboard/viewmodel/dashboard_prov.dart';
+import 'package:fanwelt/app/model_class/viewmodel.dart';
 import 'package:fanwelt/app/routes/routes.dart';
 import 'package:fanwelt/app/tournaments/view/screen_tournaments.dart';
 import 'package:fanwelt/app/upcoming_matches/view/screen_upcoming.dart';
@@ -14,11 +16,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ScreenDashboard extends StatelessWidget {
-  
-   const ScreenDashboard({Key? key,}) : super(key: key);
+  const ScreenDashboard({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final dataQ = DataFetch().getAllNotes();
+    log(dataQ.toString());
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -32,20 +37,23 @@ class ScreenDashboard extends StatelessWidget {
                         physics: const BouncingScrollPhysics(),
                         children: [
                           kheight,
-                           const SectionRow(
-                            title: ('My Rooms'), screen: ScreenUpcomingMateches(), 
+                          const SectionRow(
+                            title: ('My Rooms'),
+                            screen: ScreenUpcomingMateches(),
                           ),
                           kheight15,
                           CarouselWidget(cardList: value.cardList),
                           kheight15,
-                           const SectionRow(
-                            title: ('Upcomimg Matches'), screen:  ScreenUpcomingMateches(),
+                          const SectionRow(
+                            title: ('Upcomimg Matches'),
+                            screen: ScreenUpcomingMateches(),
                           ),
                           kheight15,
                           const CardWidgetWhite(),
                           kheight15,
-                           const SectionRow(
-                            title: ('Tournaments'), screen:  ScreenTournments(),
+                          const SectionRow(
+                            title: ('Tournaments'),
+                            screen: ScreenTournments(),
                           ),
                           kheight15,
                           const TournamentCardWidget()
@@ -63,13 +71,11 @@ class ScreenDashboard extends StatelessWidget {
   }
 }
 
-
-
 class SectionRow extends StatelessWidget {
-
   final String title;
   final Widget screen;
-   const SectionRow({Key? key, required this.title,required this.screen}) : super(key: key);
+  const SectionRow({Key? key, required this.title, required this.screen})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -85,10 +91,8 @@ class SectionRow extends StatelessWidget {
         Row(
           children: [
             InkWell(
-              onTap: (){
-
-            RoutesScreen().pushScreen(context, screen);
-
+              onTap: () {
+                RoutesScreen().pushScreen(context, screen);
               },
               child: Text(
                 'View All',
