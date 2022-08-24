@@ -1,16 +1,16 @@
 import 'package:fanwelt/app/home/view/widgets/appbar.dart';
 import 'package:fanwelt/app/home/viewmodel/bottom_nav_prov.dart';
+import 'package:fanwelt/app/model_class/viewmodel.dart';
 import 'package:fanwelt/app/utitis/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ScreenHome extends StatelessWidget {
- 
-  
-   const ScreenHome({Key? key}) : super(key: key);
+  const ScreenHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    DataFetch().getAllNotes();
     final prov = Provider.of<NavigationControllerProv>(context);
     return Container(
       color: kWhitecolor,
@@ -18,7 +18,10 @@ class ScreenHome extends StatelessWidget {
         child: Scaffold(
           appBar: PreferredSize(
             preferredSize: Size(MediaQuery.of(context).size.width, 80.0),
-            child: AppBarWidget(title: 'Fanwelt', profileAvatar: true,),
+            child: const AppBarWidget(
+              title: 'Fanwelt',
+              profileAvatar: true,
+            ),
           ),
           body: prov.navItems[prov.selectedIndex],
           bottomNavigationBar: Consumer<NavigationControllerProv>(
@@ -82,8 +85,6 @@ class ScreenHome extends StatelessWidget {
   }
 }
 
-
-
 class NavbarContainerWidget extends StatelessWidget {
   final IconData icon;
   final int index;
@@ -99,7 +100,7 @@ class NavbarContainerWidget extends StatelessWidget {
         width: 60,
         decoration: prov.selectedIndex == index
             ? BoxDecoration(
-                gradient:deffAppgradient ,
+                gradient: deffAppgradient,
                 borderRadius: BorderRadius.circular(30))
             : BoxDecoration(
                 color: offWhiteColor,

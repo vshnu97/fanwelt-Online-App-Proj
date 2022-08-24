@@ -21,6 +21,8 @@ class Providers {
             create: (context) => TournamentProv()),
              ChangeNotifierProvider<SubCardProv>(
             create: (context) => SubCardProv()),
+            //  ChangeNotifierProvider<DataFetch>(
+            // create: (context) => DataFetch()),
       ],
       child: const MyApp(),
     );

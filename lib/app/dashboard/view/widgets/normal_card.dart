@@ -43,7 +43,7 @@ class CardWidgetWhite extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Gujarat Titans',
                       style: wTextSubStyleBlack,
                     ),
@@ -70,7 +70,7 @@ class CardWidgetWhite extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(
+                    const Text(
                       'Kolkata Riders',
                       style: wTextSubStyleBlack,
                     ),
